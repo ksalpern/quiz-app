@@ -7,56 +7,42 @@
   gap: 8px;
   align-items: center;
   padding: 0 12%;
+  background: var(--black-40);
+  -webkit-mask:
+    url("/option-button-wrapper-mask.svg") center/contain no-repeat,
+    linear-gradient(#000000 0 0);
+  mask-composite: intersect;
+  mask-size: contain;
 
-  &::after,
   &::before {
     content: "";
     position: absolute;
     inset: 0;
-    mask-size: cover;
-    mask-position: center;
-  }
-
-  &::after {
-    background: var(--black-40);
-    -webkit-mask:
-      url("/option-button-wrapper-mask.svg") center/cover no-repeat,
-      linear-gradient(#000000 0 0);
-    mask-composite: intersect;
-    z-index: -2;
-  }
-
-  &::before {
     background: var(--white-100);
     -webkit-mask:
       url("/option-button-content-mask.svg") center/cover no-repeat,
       linear-gradient(#000000 0 0);
     mask-composite: exclude;
+    mask-size: cover;
     z-index: -1;
   }
 
   &.correct {
-    &::after {
-      background: var(--green-100);
-    }
+    background: var(--green-100);
     &::before {
       background: var(--green-5);
     }
   }
 
   &.wrong {
-    &::after {
-      background: var(--red-100);
-    }
+    background: var(--red-100);
     &::before {
       background: var(--red-5);
     }
   }
 
   &.selected {
-    &::after {
-      background: var(--orange-100);
-    }
+    background: var(--orange-100);
     &::before {
       background: var(--orange-5);
     }
