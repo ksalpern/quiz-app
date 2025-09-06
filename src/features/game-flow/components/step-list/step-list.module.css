@@ -1,0 +1,33 @@
+.wrapper {
+  background: var(--black-5);
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  z-index: 1;
+
+  &.open {
+    transform: translateX(0%);
+  }
+
+  .list {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    max-height: 100dvh;
+    margin: auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: fit-content;
+    position: relative;
+    transform: translateX(0%);
+    background: var(--white-100);
+  }
+}
