@@ -1,0 +1,9 @@
+.thumbsUp {
+  position: relative;
+  width: calc(288px + (624 - 288) * ((100vw - 320px) / (1440 - 320)));
+  aspect-ratio: 3/2;
+
+  @media (min-width: 768px) {
+    margin-left: auto;
+  }
+}
