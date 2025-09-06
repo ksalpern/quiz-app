@@ -1,0 +1,38 @@
+.optionButton {
+  width: 320px;
+  height: 56px;
+  z-index: 1;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--black-40);
+    -webkit-mask:
+      url("/option-button-wrapper-mask.svg") center/cover no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: cover;
+    mask-position: center;
+    mask-composite: intersect;
+    z-index: -2;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--white-100);
+    -webkit-mask:
+      url("/option-button-content-mask.svg") center/cover no-repeat,
+      linear-gradient(#000000 0 0);
+    mask-size: cover;
+    mask-position: center;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
+  strong {
+    color: var(--orange-100);
+  }
+}
