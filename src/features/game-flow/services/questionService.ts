@@ -90,7 +90,7 @@ class QuestionService {
   checkAnswer(questionId: number, selectedAnswers: string[]): boolean {
     try {
       const question = questionsConfig.questions.find(
-        (q) => q.id === questionId,
+        (question) => question.id === questionId,
       );
 
       if (!question) {
