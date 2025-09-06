@@ -1,6 +1,6 @@
 .step {
   width: calc(320px + (376 - 320) * ((100vw - 320px) / (1440 - 320)));
-  height: calc(32px + (40 - 32) * ((100vw - 320px) / (1440 - 320)));
+  aspect-ratio: 10/1;
   z-index: 1;
   display: flex;
   justify-content: center;

@@ -1,35 +1,56 @@
 .optionButton {
-  width: 320px;
-  height: 56px;
+  width: 100%;
+  aspect-ratio: 40/7;
   z-index: 1;
   position: relative;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 0 50px;
 
-  &::after {
+  &::after,
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
+    mask-size: cover;
+    mask-position: center;
+  }
+
+  &::after {
     background: var(--black-40);
     -webkit-mask:
       url("/option-button-wrapper-mask.svg") center/cover no-repeat,
       linear-gradient(#000000 0 0);
-    mask-size: cover;
-    mask-position: center;
     mask-composite: intersect;
     z-index: -2;
   }
 
   &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
     background: var(--white-100);
     -webkit-mask:
       url("/option-button-content-mask.svg") center/cover no-repeat,
       linear-gradient(#000000 0 0);
-    mask-size: cover;
-    mask-position: center;
     mask-composite: exclude;
     z-index: -1;
+  }
+
+  &.correct {
+    &::after {
+      background: var(--green-100);
+    }
+  }
+
+  &.wrong {
+    &::after {
+      background: var(--red-100);
+    }
+  }
+
+  &.selected {
+    &::after {
+      background: var(--orange-100);
+    }
   }
 
   strong {
