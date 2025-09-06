@@ -1,0 +1,32 @@
+.gameContent {
+  flex-grow: 1;
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+
+  h2 {
+    margin: 0 16px;
+  }
+
+  .options {
+    display: grid;
+    row-gap: 8px;
+    margin-top: auto;
+  }
+
+  @media screen and (min-width: 500px) {
+    padding: 133px calc(16px + (80 - 16) * ((100vw - 320px) / (1440 - 320)))
+      122px;
+
+    h2 {
+      margin: 0;
+    }
+
+    .options {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 32px;
+    }
+  }
+}
