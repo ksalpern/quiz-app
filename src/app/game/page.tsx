@@ -17,8 +17,7 @@ export default function GamePage() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const { questions, loading, error } = useGameData();
-  const { currentQuestion, submitAnswer, nextQuestion, finishGame } =
-    useGameLogic();
+  const { currentQuestion } = useGameLogic();
 
   if (loading) return <Loading />;
   if (error) return <Error error={{ message: error } as Error} />;
@@ -50,9 +49,6 @@ export default function GamePage() {
         <GameContent
           question={questions[currentQuestion]}
           totalQuestions={questions.length}
-          onAnswer={submitAnswer}
-          onNext={(totalQuestions) => nextQuestion(totalQuestions)}
-          onFinish={finishGame}
         />
         <StepList isOpenMenu={isOpenMenu} />
       </div>

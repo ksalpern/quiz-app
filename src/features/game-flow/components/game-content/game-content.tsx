@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
-
 import type { Question } from "@/types/question";
+import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
+import { useGameState } from "@/features/game-flow/hooks/useGameState";
+import { getOptionLabel } from "@/utils/gameUtils";
+
 import OptionButton from "@/components/ui/option-button/option-button";
 
 import styles from "./game-content.module.css";
@@ -10,21 +12,22 @@ import styles from "./game-content.module.css";
 interface GameContentProps {
   question: Question;
   totalQuestions: number;
-  onAnswer: (questionId: number, selectedOptions: string[]) => boolean;
-  onNext: (totalQuestions: number) => void;
-  onFinish: () => void;
 }
 
 export default function GameContent({
   question,
   totalQuestions,
-  onAnswer,
-  onNext,
-  onFinish,
 }: GameContentProps) {
-  const [selectedAnswers, setSelectedAnswers] = useState<string[]>([]);
-  const [showResult, setShowResult] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false);
+  const { submitAnswer, nextQuestion, finishGame } = useGameLogic();
+  const {
+    selectedAnswers,
+    setSelectedAnswers,
+    showResult,
+    setShowResult,
+    isCorrect,
+    setIsCorrect,
+    getButtonState,
+  } = useGameState(question);
 
   const handleAnswer = (option: string) => {
     if (selectedAnswers.includes(option)) {
@@ -37,38 +40,19 @@ export default function GameContent({
   const submitAnswers = () => {
     if (selectedAnswers.length === 0) return;
 
-    const correct = onAnswer(question.id, selectedAnswers);
+    const correct = submitAnswer(question.id, selectedAnswers);
     setIsCorrect(correct);
     setShowResult(true);
   };
 
   const handleNext = () => {
     if (isCorrect) {
-      onNext(totalQuestions);
+      nextQuestion(totalQuestions);
     } else {
-      onFinish();
+      finishGame();
     }
     setSelectedAnswers([]);
     setShowResult(false);
-  };
-
-  const getVariant = (index: number) => {
-    const variants = ["A", "B", "C", "D", "E"];
-    return variants[index] || "A";
-  };
-
-  const getButtonState = (option: string, index: number) => {
-    if (!showResult) {
-      return selectedAnswers.includes(option) ? "selected" : "";
-    }
-
-    const isSelected = selectedAnswers.includes(option);
-    if (!isSelected) {
-      return "";
-    }
-
-    const isCorrectAnswer = question.correctAnswers.includes(index);
-    return isCorrectAnswer ? "correct" : "wrong";
   };
 
   return (
@@ -79,7 +63,7 @@ export default function GameContent({
         {question.options.map((option, index) => (
           <OptionButton
             key={index}
-            variant={getVariant(index)}
+            variant={getOptionLabel(index)}
             answer={option}
             state={getButtonState(option, index)}
             onClick={() => handleAnswer(option)}
