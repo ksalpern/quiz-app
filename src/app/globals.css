@@ -71,9 +71,8 @@ a {
   display: none;
 }
 
-.main-layout {
+.mainLayout {
   height: 100dvh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -82,7 +81,7 @@ a {
   display: flex;
   gap: 24px;
 
-  &.gradient-background {
+  &.gradientBackground {
     background: linear-gradient(
       to bottom right,
       var(--white-100) 50%,
@@ -90,7 +89,12 @@ a {
     );
   }
 
+  .grayText {
+    color: var(--black-40);
+  }
+
   .contentContainer {
+    width: 100%;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -101,11 +105,24 @@ a {
     }
 
     a {
-      width: fit-content;
+      width: 100%;
       margin-top: auto;
     }
   }
 
+  &.notFount {
+    .thumbsUp {
+      transform: rotate(180deg);
+    }
+  }
+
+  @media (min-width: 320px) {
+    .contentContainer {
+      a {
+        width: fit-content;
+      }
+    }
+  }
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -123,4 +140,11 @@ a {
       }
     }
   }
+}
+
+.loading {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

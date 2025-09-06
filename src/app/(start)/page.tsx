@@ -5,7 +5,7 @@ import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
 
 export default function Home() {
   return (
-    <div className="main-layout gradient-background">
+    <div className="mainLayout gradientBackground">
       <ThumbsUp />
       <div className="contentContainer">
         <h1>Who wants to be a millionaire?</h1>

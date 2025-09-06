@@ -1,14 +1,20 @@
 import Button from "@/components/ui/button/button";
+import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div>
-      <h2>Page not found</h2>
-      <p>The page you are looking for does not exist.</p>
-      <Link href="/">
-        <Button>Go home</Button>
-      </Link>
+    <div className="mainLayout gradientBackground notFount">
+      <ThumbsUp />
+      <div className="contentContainer">
+        <div className="">
+          <h2>Page not found</h2>
+          <p>The page you are looking for does not exist.</p>
+        </div>
+        <Link href="/">
+          <Button>Go home</Button>
+        </Link>
+      </div>
     </div>
   );
 }

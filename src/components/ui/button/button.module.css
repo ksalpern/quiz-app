@@ -3,7 +3,9 @@
   color: var(--white-100);
   padding: 20px 24px;
   min-height: calc(48px + (64 - 48) * ((100vw - 320px) / (1440 - 320)));
-  min-width: calc(280px + (296 - 280) * ((100vw - 320px) / (1440 - 320)));
+  width: 100%;
+  min-width: fit-content;
+  max-width: 100%;
   font-weight: 600;
   border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -17,5 +19,10 @@
 
   &:active {
     background-color: var(--orange-120);
+  }
+
+  @media screen and (min-width: 320px) {
+    width: fit-content;
+    min-width: 280px;
   }
 }

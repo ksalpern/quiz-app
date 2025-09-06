@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function ThumbsUp() {
   return (
-    <div className={styles.thumbsUp}>
+    <div className={`${styles.thumbsUp} thumbsUp`}>
       <Image src="/hand.svg" alt="thumbs up" fill priority />
     </div>
   );
