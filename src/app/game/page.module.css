@@ -2,4 +2,28 @@
   height: 100dvh;
   background: var(--black-5);
   display: flex;
+  flex-direction: column;
+
+  .menuButton {
+    display: flex;
+    width: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
+    aspect-ratio: 1/1;
+    position: relative;
+    z-index: 2;
+    margin: 16px 16px 0 auto;
+
+    .menuIcon {
+      width: calc(24px + (48 - 24) * ((100vw - 320px) / (1440 - 320)));
+      aspect-ratio: 1/1;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .pageContent {
+    display: flex;
+    flex-grow: 1;
+  }
 }

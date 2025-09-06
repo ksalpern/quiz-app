@@ -1,19 +1,21 @@
-import Step from "@/components/ui/step/step";
+"use client";
+
+import { useGameData } from "@/features/game-flow/hooks/useGameData";
+import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
 import { formatPrize } from "@/utils/formatPrize";
-import type { Step as StepType } from "@/types/step";
+
+import Step from "@/components/ui/step/step";
+
 import styles from "./step-list.module.css";
 
 interface StepListProps {
-  steps: StepType[];
-  currentStep: number;
   isOpenMenu: boolean;
 }
 
-export default function StepList({
-  steps,
-  currentStep,
-  isOpenMenu,
-}: StepListProps) {
+export default function StepList({ isOpenMenu }: StepListProps) {
+  const { steps } = useGameData();
+  const { currentQuestion } = useGameLogic();
+
   const reversedSteps = [...steps].reverse();
 
   const getStepState = (
@@ -21,8 +23,8 @@ export default function StepList({
   ): "inactive" | "current" | "finished" => {
     const reversedIndex = steps.length - 1 - originalIndex;
 
-    if (reversedIndex < currentStep) return "finished";
-    if (reversedIndex === currentStep) return "current";
+    if (reversedIndex < currentQuestion) return "finished";
+    if (reversedIndex === currentQuestion) return "current";
     return "inactive";
   };
 

@@ -3,16 +3,14 @@ import Link from "next/link";
 import Button from "@/components/ui/button/button";
 import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
 
-import styles from "./page.module.css";
-
 export default function Home() {
   return (
-    <div className={styles.homePage}>
+    <div className="main-layout gradient-background">
       <ThumbsUp />
-      <div className={styles.contentContainer}>
+      <div className="contentContainer">
         <h1>Who wants to be a millionaire?</h1>
         <Link href="/game">
-          <Button className={styles.startButton}>Start</Button>
+          <Button>Start</Button>
         </Link>
       </div>
     </div>
