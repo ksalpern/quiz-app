@@ -25,7 +25,6 @@ body {
 }
 
 body {
-  color: var(--black-100);
   background: var(--white-100);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,6 +34,7 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  color: var(--black-100);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1440 - 320)));
 }
@@ -47,10 +47,6 @@ h1 {
 h2 {
   font-size: calc(18px + (32 - 18) * ((100vw - 320px) / (1440 - 320)));
   font-weight: 600;
-
-  @media screen and (min-width: 768px) {
-    font-size: 32px;
-  }
 }
 
 button {
@@ -67,7 +63,6 @@ button {
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 ::-webkit-scrollbar {

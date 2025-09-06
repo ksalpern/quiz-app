@@ -6,7 +6,7 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  padding: 0 50px;
+  padding: 0 12%;
 
   &::after,
   &::before {
@@ -39,17 +39,26 @@
     &::after {
       background: var(--green-100);
     }
+    &::before {
+      background: var(--green-5);
+    }
   }
 
   &.wrong {
     &::after {
       background: var(--red-100);
     }
+    &::before {
+      background: var(--red-5);
+    }
   }
 
   &.selected {
     &::after {
       background: var(--orange-100);
+    }
+    &::before {
+      background: var(--orange-5);
     }
   }
 
