@@ -10,7 +10,7 @@ interface StepProps {
 
 export default function Step({ children, className, state }: StepProps) {
   return (
-    <div className={`${styles.step} ${className || ""} ${state}`}>
+    <div className={`${styles.step} ${className || ""} ${styles[state]}`}>
       {children}
     </div>
   );
