@@ -20,6 +20,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100dwh;
   overflow-x: hidden;
 }
 
@@ -35,24 +36,16 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
-  font-size: 14px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 20px;
-  }
+  font-size: calc(14px + (20 - 14) * ((100vw - 320px) / (1440 - 320)));
 }
 
 h1 {
-  font-size: 32px;
   font-weight: 600;
-
-  @media screen and (min-width: 768px) {
-    font-size: 56px;
-  }
+  font-size: calc(32px + (56 - 32) * ((100vw - 320px) / (1440 - 320)));
 }
 
 h2 {
-  font-size: 18px;
+  font-size: calc(18px + (32 - 18) * ((100vw - 320px) / (1440 - 320)));
   font-weight: 600;
 
   @media screen and (min-width: 768px) {
@@ -64,9 +57,14 @@ button {
   cursor: pointer;
   border: none;
   outline: none;
-  transition: all 0.2s ease;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  -ms-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
+  transition: background 0.2s ease;
+  -webkit-transition: background 0.2s ease;
+  -moz-transition: background 0.2s ease;
+  -ms-transition: background 0.2s ease;
+  -o-transition: background 0.2s ease;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
