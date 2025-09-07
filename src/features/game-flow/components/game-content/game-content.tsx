@@ -18,14 +18,8 @@ export default function GameContent({
   question,
   totalQuestions,
 }: GameContentProps) {
-  const {
-    selectedAnswers,
-    showResult,
-    handleAnswer,
-    autoSubmitAnswers,
-    getButtonState,
-    progress,
-  } = useAutoGameLogic(question, totalQuestions);
+  const { showResult, handleAnswer, getButtonState, progress } =
+    useAutoGameLogic(question, totalQuestions);
 
   return (
     <>

@@ -61,7 +61,6 @@
     &:hover {
       background: var(--orange-100);
     }
-    &:focus,
     &:focus-visible {
       background: var(--black-100);
     }

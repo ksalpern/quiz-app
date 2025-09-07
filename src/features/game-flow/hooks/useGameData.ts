@@ -22,7 +22,7 @@ export const useGameData = () => {
         setQuestions(questionsData);
         setSteps(stepsData);
         setError(null);
-      } catch (err) {
+      } catch (error) {
         console.error("Game data loading error:", error);
         setError(
           "The error occured while loading game data. Please check the configuration.",
