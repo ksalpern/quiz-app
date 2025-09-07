@@ -3,8 +3,10 @@
 import { useEffect } from "react";
 import Link from "next/link";
 
-import Button from "@/components/ui/button/button";
 import { useGameStore } from "./stores/useGameStore";
+
+import Button from "@/components/ui/button/button";
+import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
 
 export default function Error({
   error,
@@ -17,12 +19,17 @@ export default function Error({
   }, [error]);
 
   return (
-    <div>
-      <h1>Something went wrong!</h1>
-      {error.message && <h2>{error.message}</h2>}
-      <Link href="/">
-        <Button onClick={resetGame}>Try again</Button>
-      </Link>
+    <div className="mainLayout gradientBackground notFount">
+      <ThumbsUp />
+      <div className="contentContainer">
+        <div>
+          <h1>Something went wrong!</h1>
+          {error.message && <p>{error.message}</p>}
+        </div>
+        <Link href="/">
+          <Button onClick={resetGame}>Try again</Button>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -7,8 +7,8 @@ export default function NotFound() {
     <div className="mainLayout gradientBackground notFount">
       <ThumbsUp />
       <div className="contentContainer">
-        <div className="">
-          <h2>Page not found</h2>
+        <div>
+          <h1>Page not found</h1>
           <p>The page you are looking for does not exist.</p>
         </div>
         <Link href="/">
