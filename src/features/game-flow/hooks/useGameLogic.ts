@@ -17,12 +17,14 @@ export const useGameLogic = () => {
     addAnswer,
     setCurrentPrize,
     setGameStatus,
+    resetGame,
   } = useGameStore();
 
   const startGame = () => {
     setGameStatus("playing");
     setCurrentQuestion(0);
     setCurrentPrize(0);
+    router.push("/game");
   };
 
   const submitAnswer = (questionId: number, selectedOptions: string[]) => {
@@ -60,6 +62,11 @@ export const useGameLogic = () => {
     router.push("/result");
   };
 
+  const resetGameToStart = () => {
+    router.push("/");
+    resetGame();
+  };
+
   return {
     currentQuestion,
     answers,
@@ -69,5 +76,6 @@ export const useGameLogic = () => {
     submitAnswer,
     nextQuestion,
     finishGame,
+    resetGameToStart,
   };
 };
