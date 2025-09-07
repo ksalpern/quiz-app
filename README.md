@@ -85,4 +85,6 @@ src/
 
 - **Extensible architecture** for new question types & feature flags
 
+<p align="center">
 **Built with ❤️**
+</p>
