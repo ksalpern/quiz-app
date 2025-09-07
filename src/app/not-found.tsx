@@ -1,19 +1,22 @@
+"use client";
+
 import Button from "@/components/ui/button/button";
 import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
-import Link from "next/link";
+
+import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
 
 export default function NotFound() {
+  const { resetGameToStart } = useGameLogic();
+
   return (
-    <div className="mainLayout gradientBackground notFount">
-      <ThumbsUp />
+    <div className="mainLayout gradientBackground">
+      <ThumbsUp className="rotate180" />
       <div className="contentContainer">
         <div>
           <h1>Page not found</h1>
           <p>The page you are looking for does not exist.</p>
         </div>
-        <Link href="/">
-          <Button>Go home</Button>
-        </Link>
+        <Button onClick={resetGameToStart}>Go home</Button>
       </div>
     </div>
   );

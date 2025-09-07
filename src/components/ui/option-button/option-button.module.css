@@ -42,7 +42,7 @@
   }
 
   &.selected {
-    background: var(--orange-100);
+    background: var(--black-40);
     &::before {
       background: var(--orange-5);
     }
@@ -50,5 +50,9 @@
 
   strong {
     color: var(--orange-100);
+  }
+
+  &:hover {
+    background: var(--orange-100);
   }
 }

@@ -104,25 +104,11 @@ a {
       text-align: center;
     }
 
-    a {
-      width: 100%;
+    button {
       margin-top: auto;
     }
   }
 
-  &.notFount {
-    .thumbsUp {
-      transform: rotate(180deg);
-    }
-  }
-
-  @media (min-width: 320px) {
-    .contentContainer {
-      a {
-        width: fit-content;
-      }
-    }
-  }
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -135,7 +121,7 @@ a {
         text-align: start;
       }
 
-      a {
+      button {
         margin-top: 0;
       }
     }
@@ -147,4 +133,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.rotate180 {
+  transform: rotate(180deg);
 }

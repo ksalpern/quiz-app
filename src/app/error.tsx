@@ -1,9 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
-import Link from "next/link";
 
-import { useGameStore } from "./stores/useGameStore";
+import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
 
 import Button from "@/components/ui/button/button";
 import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
@@ -13,22 +12,21 @@ export default function Error({
 }: {
   error: Error & { digest?: string };
 }) {
-  const { resetGame } = useGameStore();
+  const { resetGameToStart } = useGameLogic();
+
   useEffect(() => {
     console.error(error);
   }, [error]);
 
   return (
-    <div className="mainLayout gradientBackground notFount">
-      <ThumbsUp />
+    <div className="mainLayout gradientBackground">
+      <ThumbsUp className="rotate180" />
       <div className="contentContainer">
         <div>
           <h1>Something went wrong!</h1>
           {error.message && <p>{error.message}</p>}
         </div>
-        <Link href="/">
-          <Button onClick={resetGame}>Try again</Button>
-        </Link>
+        <Button onClick={resetGameToStart}>Try again</Button>
       </div>
     </div>
   );
