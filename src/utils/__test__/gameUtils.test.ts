@@ -11,7 +11,7 @@ describe("gameUtils", () => {
       expect(getOptionLabel(5)).toBe("F");
     });
 
-    it('should return "A" for invalid index', () => {
+    it("should return 'A' for invalid index", () => {
       expect(getOptionLabel(-1)).toBe("A");
       expect(getOptionLabel(6)).toBe("A");
       expect(getOptionLabel(10)).toBe("A");
