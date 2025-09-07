@@ -1,4 +1,4 @@
-import { questionService } from "../questionService";
+import { questionService } from "@/features/game-flow/services/questionService";
 import type { Question } from "@/types/question";
 
 interface QuestionServiceWithPrivateMethods {
