@@ -1,6 +1,6 @@
 "use client";
 
-import { useGameStore } from "@/app/stores/useGameStore";
+import { useGameStore } from "@/stores/useGameStore";
 import { questionService } from "../services/questionService";
 import type { Answer } from "@/types/answer";
 
