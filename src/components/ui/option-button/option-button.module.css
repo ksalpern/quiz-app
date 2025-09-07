@@ -42,7 +42,7 @@
   }
 
   &.selected {
-    background: var(--black-40);
+    background: var(--orange-100);
     &::before {
       background: var(--orange-5);
     }
@@ -52,7 +52,9 @@
     color: var(--orange-100);
   }
 
-  &:hover {
-    background: var(--orange-100);
+  @media screen and (min-width: 768px) {
+    &:hover {
+      background: var(--orange-100);
+    }
   }
 }

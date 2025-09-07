@@ -11,10 +11,6 @@
   -ms-border-radius: 12px;
   -o-border-radius: 12px;
 
-  &:hover {
-    background-color: var(--orange-80);
-  }
-
   &:active {
     background-color: var(--orange-120);
   }
@@ -22,5 +18,10 @@
   @media screen and (min-width: 320px) {
     width: fit-content;
     min-width: 280px;
+  }
+  @media screen and (min-width: 768px) {
+    &:hover {
+      background-color: var(--orange-80);
+    }
   }
 }
