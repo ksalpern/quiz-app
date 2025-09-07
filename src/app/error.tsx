@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
+import { useGameNavigation } from "@/features/game-flow/hooks/useGameNavigation";
 
 import Button from "@/components/ui/button/button";
 import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
@@ -12,7 +12,7 @@ export default function Error({
 }: {
   error: Error & { digest?: string };
 }) {
-  const { resetGameToStart } = useGameLogic();
+  const { navigateToStart } = useGameNavigation();
 
   useEffect(() => {
     console.error(error);
@@ -26,7 +26,7 @@ export default function Error({
           <h1>Something went wrong!</h1>
           {error.message && <p>{error.message}</p>}
         </div>
-        <Button onClick={resetGameToStart}>Try again</Button>
+        <Button onClick={navigateToStart}>Try again</Button>
       </div>
     </div>
   );

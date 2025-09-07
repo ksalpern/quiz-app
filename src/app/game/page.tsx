@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 
 import { useGameData } from "@/features/game-flow/hooks/useGameData";
-import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
+import { useGameState } from "@/features/game-flow/hooks/useGameState";
 import StepList from "@/features/game-flow/components/step-list/step-list";
 import GameContent from "@/features/game-flow/components/game-content/game-content";
 
@@ -17,7 +17,7 @@ export default function GamePage() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const { questions, loading, error } = useGameData();
-  const { currentQuestion } = useGameLogic();
+  const { currentQuestion } = useGameState();
 
   if (loading) return <Loading />;
   if (error) return <Error error={{ message: error } as Error} />;

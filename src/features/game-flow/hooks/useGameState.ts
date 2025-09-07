@@ -3,11 +3,8 @@
 import { useGameStore } from "@/app/stores/useGameStore";
 import { questionService } from "../services/questionService";
 import type { Answer } from "@/types/answer";
-import { useRouter } from "next/navigation";
 
-export const useGameLogic = () => {
-  const router = useRouter();
-
+export const useGameState = () => {
   const {
     currentQuestion,
     answers,
@@ -19,13 +16,6 @@ export const useGameLogic = () => {
     setGameStatus,
     resetGame,
   } = useGameStore();
-
-  const startGame = () => {
-    setGameStatus("playing");
-    setCurrentQuestion(0);
-    setCurrentPrize(0);
-    router.push("/game");
-  };
 
   const submitAnswer = (questionId: number, selectedOptions: string[]) => {
     const isCorrect = questionService.checkAnswer(questionId, selectedOptions);
@@ -51,19 +41,24 @@ export const useGameLogic = () => {
     const nextQuestionIndex = currentQuestion + 1;
 
     if (nextQuestionIndex >= totalQuestions) {
-      finishGame();
-      return;
+      setGameStatus("finished");
+      return false;
     }
     setCurrentQuestion(nextQuestionIndex);
+    return true;
+  };
+
+  const startGame = () => {
+    setGameStatus("playing");
+    setCurrentQuestion(0);
+    setCurrentPrize(0);
   };
 
   const finishGame = () => {
     setGameStatus("finished");
-    router.push("/result");
   };
 
-  const resetGameToStart = () => {
-    router.push("/");
+  const resetGameState = () => {
     resetGame();
   };
 
@@ -72,10 +67,11 @@ export const useGameLogic = () => {
     answers,
     currentPrize,
     gameStatus,
+
     startGame,
     submitAnswer,
     nextQuestion,
     finishGame,
-    resetGameToStart,
+    resetGameState,
   };
 };

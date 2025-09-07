@@ -1,7 +1,7 @@
 "use client";
 
 import type { Question } from "@/types/question";
-import { useAutoGameLogic } from "@/features/game-flow/hooks/useAutoGameLogic";
+import { useQuestionFlow } from "@/features/game-flow/hooks/useQuestionFlow";
 import { getOptionLabel } from "@/utils/gameUtils";
 
 import OptionButton from "@/components/ui/option-button/option-button";
@@ -19,7 +19,7 @@ export default function GameContent({
   totalQuestions,
 }: GameContentProps) {
   const { showResult, handleAnswer, getButtonState, progress } =
-    useAutoGameLogic(question, totalQuestions);
+    useQuestionFlow(question, totalQuestions);
 
   return (
     <>

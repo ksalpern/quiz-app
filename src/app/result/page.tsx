@@ -6,11 +6,11 @@ import Button from "@/components/ui/button/button";
 import ThumbsUp from "@/components/ui/thumbs-up/thumbs-up";
 
 import { formatPrize } from "@/utils/formatPrize";
-import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
+import { useGameNavigation } from "@/features/game-flow/hooks/useGameNavigation";
 
 export default function ResultPage() {
   const { currentPrize } = useGameStore();
-  const { resetGameToStart } = useGameLogic();
+  const { navigateToStart } = useGameNavigation();
 
   return (
     <div className="mainLayout">
@@ -20,7 +20,7 @@ export default function ResultPage() {
           <h2 className="grayText">Total score:</h2>
           <h1>{formatPrize(currentPrize)} earned</h1>
         </div>
-        <Button onClick={resetGameToStart}>Try again</Button>
+        <Button onClick={navigateToStart}>Try again</Button>
       </div>
     </div>
   );

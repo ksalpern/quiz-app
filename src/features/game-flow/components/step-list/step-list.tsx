@@ -1,7 +1,7 @@
 "use client";
 
 import { useGameData } from "@/features/game-flow/hooks/useGameData";
-import { useGameLogic } from "@/features/game-flow/hooks/useGameLogic";
+import { useGameState } from "@/features/game-flow/hooks/useGameState";
 import { formatPrize } from "@/utils/formatPrize";
 
 import Step from "@/components/ui/step/step";
@@ -14,7 +14,7 @@ interface StepListProps {
 
 export default function StepList({ isOpenMenu }: StepListProps) {
   const { steps } = useGameData();
-  const { currentQuestion } = useGameLogic();
+  const { currentQuestion } = useGameState();
 
   const reversedSteps = [...steps].reverse();
 
