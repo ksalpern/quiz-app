@@ -1,13 +1,13 @@
-import React from "react";
+import type { AnswerState } from "@/types/answer";
+
 import styles from "./option-button.module.css";
 
-interface OptionButtonProps {
+interface OptionButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant: string;
   answer: string;
-  state: "correct" | "wrong" | "selected" | "";
+  state: AnswerState;
   className?: string;
-  onClick?: () => void;
-  disabled?: boolean;
 }
 
 export default function OptionButton({
@@ -15,14 +15,12 @@ export default function OptionButton({
   variant,
   answer,
   state,
-  onClick,
-  disabled = false,
+  ...props
 }: OptionButtonProps) {
   return (
     <button
       className={`${styles.optionButton} ${className} ${styles[state]}`}
-      onClick={onClick}
-      disabled={disabled}
+      {...props}
     >
       <strong>{variant}</strong>
       <span>{answer}</span>

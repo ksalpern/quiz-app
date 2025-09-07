@@ -1,0 +1,2 @@
+export const TIMER_DURATION = 10000;
+export const RESULT_SHOW_DURATION = 2000;
