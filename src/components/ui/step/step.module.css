@@ -10,6 +10,9 @@
   -webkit-mask:
     url("/step-wrapper-mask.svg") center/contain no-repeat,
     linear-gradient(#000000 0 0);
+  mask:
+    url("/step-wrapper-mask.svg") center/contain no-repeat,
+    linear-gradient(#000000 0 0);
   mask-composite: intersect;
   mask-size: contain;
 
@@ -19,6 +22,9 @@
     position: absolute;
     background: var(--white-100);
     -webkit-mask:
+      url("/step-content-mask.svg") center/contain no-repeat,
+      linear-gradient(#000000 0 0);
+    mask:
       url("/step-content-mask.svg") center/contain no-repeat,
       linear-gradient(#000000 0 0);
     mask-composite: exclude;
